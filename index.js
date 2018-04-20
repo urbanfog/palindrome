@@ -1,3 +1,5 @@
+module.exports = Phrase;
+
 // Reverses a string
 String.prototype.reverse = function() {
   return Array.from(this).reverse().join("");
@@ -6,7 +8,7 @@ String.prototype.reverse = function() {
 function Phrase(content) {
   this.content = content;
 
-  this.processor = function(string) {
+  this.processor = function() {
     return this.content.toLowerCase();
   }
   
@@ -19,6 +21,10 @@ function Phrase(content) {
 
   this.louder = function() {
     return this.content.toUpperCase();
+  }
+
+  this.letters = function () {
+    return this.content;
   }
 }
 

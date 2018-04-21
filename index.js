@@ -11,9 +11,13 @@ function Phrase(content) {
   this.processor = function() {
     return this.content.toLowerCase();
   }
-  
+
+  this.letters = function letters() {
+    return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+  }
+
   this.processedContent = function() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
   }
   this.palindrome = function() {
     return this.processedContent() === this.processedContent().reverse();
@@ -21,10 +25,6 @@ function Phrase(content) {
 
   this.louder = function() {
     return this.content.toUpperCase();
-  }
-
-  this.letters = function () {
-    return this.content;
   }
 }
 
